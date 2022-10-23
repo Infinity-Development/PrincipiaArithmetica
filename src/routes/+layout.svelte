@@ -2,6 +2,8 @@
   import "../app.css";
 
   import Menubar from "$lib/components/Menubar.svelte";
+
+  export const prerender = false;
 </script>
 
 <!-- Make the div fill whole screen-->

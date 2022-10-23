@@ -3,7 +3,11 @@
 // and what to do when importing types
 declare namespace App {
 	// interface Locals {}
-	// interface PageData {}
+	interface PageData {
+		userId: string;
+		userToken: string;
+		username: string;
+	}
 	// interface Error {}
 	// interface Platform {}
 }
