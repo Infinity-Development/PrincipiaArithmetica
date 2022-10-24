@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores"
+	import Button from "$lib/components/Button.svelte";
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import Input from "$lib/components/Input.svelte";
 </script>
@@ -19,5 +20,8 @@
         id={question.id}
         label={question.question}
         placeholder={question.placeholder}
+        minlength={50}
     >{question.para}</Input>
 {/each}
+
+<Button link={"javascript:void(0)"}>Next</Button>
