@@ -10,10 +10,11 @@
             <div>
                 <Card
                     title={$page.data[position].name}
-                    para={$page.data[position].info.replaceAll("\n", "<br/>")}
                     link={"/apply?position=" + position}
                     linkText={"Apply now"}
-                />
+                >
+                    {@html $page.data[position].info.replaceAll("\n", "<br/>")}
+                </Card>
             </div>
         {/each}
     </div>
