@@ -3,6 +3,22 @@
 	import Button from "$lib/components/Button.svelte";
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import Input from "$lib/components/Input.svelte";
+
+    function validateQuestions() {
+        let questionMap = new Map();
+
+        $page.data.questions.foreach((question: any) => {
+            let userInpValue = (document.querySelector(`#${question.id}`) as HTMLInputElement).value;
+
+            if(!userInpValue || userInpValue.length < 50) {
+                return false;
+            }
+
+            questionMap.set(question.id, userInpValue);
+        });
+
+        return questionMap;
+    }
 </script>
 
 <div class="flex justify-center items-center">
