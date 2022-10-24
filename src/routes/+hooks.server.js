@@ -1,8 +1,5 @@
-import { error as errorFunc } from '$lib/logger';
-
-/** @type {import('@sveltejs/kit').HandleClientError} */
-export function handleError({ error, event }) {
-  errorFunc('ErrorHandler:Server', event);
+/** @type {import('@sveltejs/kit').HandleServerError} */
+export function handleError({ error }) {
   return {
     message: error.toString()
   };
