@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
  
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch, parent }) {
+export async function load({ fetch }) {
     let res = await fetch(`https://sovngarde.infinitybots.gg/herpes`)
 
     if (res.ok) {
