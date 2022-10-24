@@ -23,7 +23,11 @@ export async function load({ fetch, url, parent }) {
             throw error(400, "Invalid position!");
         }
 
-        return json[position];
+        let data = json[position]
+
+        data["positionName"] = position
+
+        return data;
     } else {
         let errorData = await res.text();
         throw error(500, errorData);

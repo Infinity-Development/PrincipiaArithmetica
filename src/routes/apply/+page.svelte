@@ -4,8 +4,6 @@
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import Input from "$lib/components/Input.svelte";
 
-    let interview: any[] | null = null
-
     function validateQuestions() {
         let questionMap = new Map();
 
@@ -34,51 +32,39 @@
             return false;
         }
 
-        flag = true
-
-        if(interview) {
-            let interviewMap = new Map();
-
-            interview.forEach((question: any) => {
-                if(!flag) {
-                    return;
-                }
-
-                let userInpValue = (document.querySelector(`#${question.id}`) as HTMLInputElement).value;
-
-                if(!userInpValue || userInpValue.length < 30) {
-                    flag = false;
-                    return;
-                }
-
-                interviewMap.set(question.id, userInpValue);
-            });
-
-            return [questionMap, interviewMap];
-        }
-
-        return true;
+        return questionMap;
     }
 
-    async function nextStep() {
-        let validate = validateQuestions()
-
-        console.log(validate)
+    function sendApp() {
+        let validate = validateQuestions();
 
         if(!validate) {
-            // Dillon, can you pls make this better?
             alert("Please answer all questions");
             return;
         }
 
-        let res = await fetch("https://sovngarde.infinitybots.gg/herpes/zoster")
+        // Convert map to object
+        let obj = Object.fromEntries(validate.entries());
 
-        if(!res.ok) {
-            alert("Something went wrong, please try again later");
-            return;
-        }
+        console.log(obj);
 
-        interview = await res.json();
+        fetch(`https://sovngarde.infinitybots.gg/herpes?user_id=${$page.data.userId}&position=${$page.data.positionName}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": $page.data.userToken
+            },
+            body: JSON.stringify(obj)
+        }).then((res) => {
+            if(res.status === 200) {
+                alert("Application sent!");
+            } else {
+                let resp = res.json().then(json => {
+                    alert(json.reason);
+                });
+                
+            }
+        });
     }
 </script>
 
@@ -101,16 +87,4 @@
     >{question.para}</Input>
 {/each}
 
-{#if !interview}
-    <Button onclick={() => nextStep()} link={"javascript:void(0)"}>Next</Button>
-{:else}
-    <h5 class="text-xl font-semibold">Interview</h5>
-    {#each interview as question}
-        <Input
-            id={question.id}
-            label={question.question}
-            placeholder={question.placeholder}
-            minlength={30}
-        >{question.para}</Input>
-    {/each}
-{/if}
+<Button onclick={() => sendApp()} link={"javascript:void(0)"}>Next</Button>
