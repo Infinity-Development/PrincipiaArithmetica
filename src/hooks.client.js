@@ -1,4 +1,4 @@
-/** @type {import('@sveltejs/kit').HandleClientError} */
+/** @type {import('@sveltejs/kit').HandleServerError} */
 export function handleError({ error }) {
     return {
       message: error.toString()
