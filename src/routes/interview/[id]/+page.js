@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
  
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch, url, params, parent }) {
+export async function load({ fetch, params, parent }) {
     let session = await parent()
 
     if(!session.userId) {

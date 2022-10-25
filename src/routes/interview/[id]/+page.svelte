@@ -4,14 +4,18 @@
 	import Input from "$lib/components/Input.svelte";
 </script>
 
-<DefaultCard
-    title="Interview"
->
-Its interview time<br/><br/>
+<div class="flex justify-center items-center">
+    <DefaultCard
+        title="Interview"
+    >
+    Its interview time<br/><br/>
 
-Note that the questions below are very general questions to allow us to get a 
-better idea of who you are and whether you will be a good fit for our staff team.
-</DefaultCard>
+    Note that the questions below are very general questions to allow us to get a 
+    better idea of who you are and whether you will be a good fit for our staff team.
+    </DefaultCard>
+</div>
+
+<div class="mt-10"></div>
 
 {#each $page.data.interview as question}
     <Input
