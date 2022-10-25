@@ -1,9 +1,13 @@
 <script lang="ts">
 	import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
 
+    import { templateTitleStore } from "./templatestore";
+
     export let title: string;
     export let reason: string;
     export let icon = "👏";
+
+    $templateTitleStore.push(title);
 
     function copy(text: string) {
         if(navigator.clipboard) {

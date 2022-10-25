@@ -8,6 +8,38 @@ import Template from "./Template.svelte";
     let commands = "[commands/features here]"
 </script>
 
+<h5 class="text-2xl font-semibold">Variables</h5>
+<p class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">You can substitute variables for values here to get the perfect reason</p>
+
+<InputSm
+    id="listName"
+    label="List Name"
+    placeholder="List Name"
+    minlength={0}
+    bind:value={listName}
+>Enter the list name here if you want this page to reflect a specific list</InputSm>
+
+<Button
+    link={"javascript:void(0)"}
+    onclick={() => {
+        listName = "Infinity Bot List"
+    }}
+>Autofill: Infinity Bot List</Button>
+
+<div class="mt-3"></div>
+
+<Input
+    id="commands"
+    label="Commands"
+    placeholder="Commands"
+    minlength={0}
+    bind:value={commands}
+>Enter the commands here if you want this page to reflect specific commands that may have issues</Input>
+
+<div class="mt-5"></div>
+
+
+<!--This is where the actual content begins-->
 <h5 class="text-2xl font-semibold">Approval Templates</h5>
 <p class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">The below templates also serve as great checks before approving or denying a bot</p>
 
@@ -72,33 +104,31 @@ Some of your bot's features require the bot itself to have the ADMINISTRATOR per
 NO bot requires administrator permissions to function. This is in fact a security risk that even Discord themselves dislike.
 
 Please change your bot to only require the permissions it truly needs and re-apply." />
+    <Template
+        title="Source Code In Description"
+        icon="🔑"
+        reason="
+Your bot description is your bots code. 
 
+Your long description should not consist of your bots code, it should be about what your bot does, a command list etc. 
+
+Please rewrite your description to include more useful information about your bot. 
+
+Friendly reminder to NEVER share your bots token with *anyone* " />
+    <Template
+        title="Long Description Abuse"
+        icon="👾"
+        reason="
+Your bot's long description has been found to be abusive:
+
+- It is filled out with spam, junk or invisible characters
+- It contains malicious links (such as phishing links or links to malware)
+- It contains hate speech or other offensive content" />
+    <Template
+        title="Stopped Responding"
+        icon="📵"
+        reason="
+Your bot has stopped responding during testing and due to this we are unable to continue testing it.
+
+Friendly reminder that using repl.it and other shared hosting services is not reliable and is often a cause of this issue." />
 </div>
-
-<div class="mt-5"></div>
-
-<h5 class="text-2xl font-semibold">Variables</h5>
-<p class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">You can substitute variables for values here to get the perfect reason</p>
-
-<InputSm
-    id="listName"
-    label="List Name"
-    placeholder="List Name"
-    minlength={0}
-    bind:value={listName}
->Enter the list name here if you want this page to reflect a specific list</InputSm>
-
-<Input
-    id="commands"
-    label="Commands"
-    placeholder="Commands"
-    minlength={0}
-    bind:value={commands}
->Enter the commands here if you want this page to reflect specific commands that may have issues</Input>
-
-<Button
-    link={"javascript:void(0)"}
-    onclick={() => {
-        listName = "Infinity Bot List"
-    }}
->Use preset variables for Infinity Bot List</Button>
