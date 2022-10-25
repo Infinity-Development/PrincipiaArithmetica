@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
+    import Swal from 'sweetalert2';
 
     import { templateTitleStore } from "./templatestore";
 
@@ -21,7 +22,14 @@
             document.body.removeChild(el);
         }
 
-        alert("Copied to clipboard!");
+        Swal.fire({
+            title: "Copied!",
+            text: "The template has been copied to your clipboard",
+            icon: "success",
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
     }
 </script>
 
