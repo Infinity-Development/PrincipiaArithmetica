@@ -14,6 +14,7 @@
                     title={$page.data[position].name}
                     link={"/apply?position=" + position}
                     linkText={"Apply now"}
+                    showArrow={false}
                 >
                     {@html $page.data[position].info.replaceAll("\n", "<br/>")}
                 </Card>
