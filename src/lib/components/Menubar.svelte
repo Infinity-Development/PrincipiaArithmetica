@@ -1,6 +1,7 @@
 <!--Tailwind menubar-->
 
 <script lang="ts">
+	import { goto } from "$app/navigation";
   import { page } from "$app/stores";
 
   function onClickMenu() {
@@ -19,6 +20,11 @@
     document.cookie = "username=; max-age=0; path=/;";
     document.cookie = "api_token=; max-age=0; path=/;";
     window.location.href = "/";
+  }
+
+  function loginUser() {
+    localStorage.setItem("redirect", window.location.href);
+    goto("/login");
   }
 </script>
 
@@ -49,7 +55,7 @@
           </li>
         {:else}
           <li>
-            <a href={"/login"} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+            <a href={"javascript:void(0)"} on:click={loginUser} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
           </li>
         {/if}
       </ul>
@@ -64,5 +70,10 @@
     <a href="/" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Home</a>
     <a href="https://infinitybots.gg" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Site</a>
     <a href="https://infinitybotlist.com/discord" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Support</a>
+    {#if $page.data.userId}
+      <a href={"javascript:void(0)"} on:click={logoutUser} class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Logout (signed in as {$page.data.username})</a>
+    {:else}
+      <a href={"javascript:void(0)"} on:click={loginUser} class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Login</a>
+    {/if}
   </div>
 </div>

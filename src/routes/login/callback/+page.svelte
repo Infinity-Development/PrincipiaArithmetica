@@ -25,7 +25,9 @@
         document.cookie = `api_token=${apiToken}; max-age=31536000; path=/;` 
         document.cookie = `username=${username}; max-age=31536000; path=/;`
 
-        setTimeout(() => window.location.href = "/", 1000)
+        let redirect = localStorage.getItem("redirect") || "/";
+
+        setTimeout(() => window.location.href = redirect, 1000)
     }
 
     if(browser) {
