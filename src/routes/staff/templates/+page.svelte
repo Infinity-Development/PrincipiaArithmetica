@@ -131,4 +131,31 @@ Your bot's long description has been found to be abusive:
 Your bot has stopped responding during testing and due to this we are unable to continue testing it.
 
 Friendly reminder that using repl.it and other shared hosting services is not reliable and is often a cause of this issue." />
+    <Template
+        title="Open DM Commands"
+        icon="🛂"
+        reason="
+Your bot has a DM command/function which allows anyone to DM a user which can be used maliciously. The following conditions must be met for such commands:
+
+- The message your bot sends in DMs must state the author or that its from an anonymous user
+- It must have a block/opt-out feature
+
+Otherwise, remove this command entirely before resubmitting." />
+    <Template
+        title="Presence/Status Abuse"
+        icon="🌀"
+        reason="
+Your bots presence changes every few seconds/too quickly and is as such considered Discord API abuse. 
+
+The maximum frequency your bot can change its status is *5 times per 20 seconds.* although we implore you to change it to something more reasonable, such as every 120 seconds.
+    " />
+    <Template
+        title="No Help Command"
+        icon="❌"
+        reason="
+Your bot doesnt have a (working) help command or obvious point of entry. 
+
+Please make sure your bot has a help command or has an explanation in the bot description.
+
+Note that if you are using slash commands, then you do not need a help command" />
 </div>
