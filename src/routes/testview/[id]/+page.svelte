@@ -14,7 +14,9 @@
             if(res.ok) {
                 alert("Interview sent!");
             } else {
-                alert("Something went wrong!");
+                res.json().then((data) => {
+                    alert(data.reason);
+                });
             }
         });
     }
