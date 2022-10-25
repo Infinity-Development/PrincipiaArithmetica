@@ -19,8 +19,9 @@ import Template from "./Template.svelte";
         reason="
 Thank you for applying.
 
-Your bot is cool and all the commands seem to be working as they should. Welcome to {listName}."
-    />
+Your bot is cool and all the commands seem to be working as they should. 
+
+Welcome to {listName}." />
     <Template
         title="Nice Bot"
         icon="😁"
@@ -29,16 +30,14 @@ Very nice bot with a huge variety of features.
 
 I have experienced little to no errors while testing this bots features. 
 
-Keep up the amazing work and welcome to {listName}
-    " />
+Keep up the amazing work and welcome to {listName}" />
     <Template
         title="Minor Issues"
         icon="🤨"
         reason="
 Your bot seems to be having a few issues with {commands}. 
         
-Everything else seems to work as intended. Welcome to {listName}
-    " />
+Everything else seems to work as intended. Welcome to {listName}" />
 </div>
 
 <div class="mt-5"></div>
