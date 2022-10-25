@@ -26,7 +26,7 @@
             title: "Copied!",
             text: "The template has been copied to your clipboard",
             icon: "success",
-            timer: 2000,
+            timer: 800,
             timerProgressBar: true,
             showConfirmButton: false
         });
