@@ -60,7 +60,7 @@ Please get your bot online and re-apply." />
         reason="
 Your bot has feature/commands that spams or abuses Discord's API. 
 
-This causes your bot to get rate-limited and can be considered Discord API Abuse. 
+This can cause your bot to get rate-limited frequently and can be considered Discord API Abuse. 
 
 Please fix the issue and re-apply." />
     <Template
