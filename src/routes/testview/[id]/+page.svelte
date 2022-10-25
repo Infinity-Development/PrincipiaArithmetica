@@ -4,7 +4,7 @@
 
 
     function sendInterview() {
-        fetch(`https://sovngarde.infinitybots.gg//herpes/app/interview:?user_id=${$page.data.userId}&app_id=${$page.params.id}`, {
+        fetch(`https://sovngarde.infinitybots.gg/herpes/app/interview?user_id=${$page.data.userId}&app_id=${$page.params.id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
