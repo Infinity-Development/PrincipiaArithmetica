@@ -8,7 +8,7 @@ export async function load({ fetch, url, params, parent }) {
         throw error(400, "Please login so we can verify its really you before starting the interview.");
     }
 
-    let app = await fetch(`https://sovngarde.infinitybots.gg/herpes/app/${params.id}?user_id=${session.userId}`, {
+    let app = await fetch(`https://sovngarde.infinitybots.gg/herpes/app?app_id=${params.id}&user_id=${session.userId}`, {
         headers: {
             "Content-Type": "application/json",
             "Authorization": session.userToken
