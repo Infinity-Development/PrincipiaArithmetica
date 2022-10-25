@@ -28,9 +28,9 @@
 </script>
 
 <div class="mb-6">
-    <label for={id} class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{label}</label>
-    <span class="text-sm text-gray-500 dark:text-gray-400"><slot /></span>
-    <textarea on:change={checkLength} minlength={minlength} type="text" id={id} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={placeholder} required bind:value></textarea>
+    <label for={id} class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">{label}</label>
+    <span class="text-md text-gray-500 dark:text-gray-400 mb-2"><slot /></span>
+    <textarea on:change={checkLength} minlength={minlength} type="text" id={id} class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={placeholder} required bind:value></textarea>
 
     {#if success == true}
         <p class="mt-2 text-sm text-green-600 dark:text-green-500"><span class="font-medium">Looks good!</span></p>

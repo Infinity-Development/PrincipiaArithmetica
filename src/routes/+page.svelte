@@ -2,6 +2,7 @@
     import { page } from "$app/stores"
 	import Button from "$lib/components/Button.svelte";
 	import Card from "$lib/components/Card.svelte";
+	import DefaultCard from "$lib/components/DefaultCard.svelte";
 </script>
 
 <!--3 cards per row-->
@@ -21,22 +22,36 @@
     </div>
 {/if}
 
-<div class="mt-15"></div>
+<div class="mt-16"></div>
+<div class="flex flex-wrap justify-center items-center justify-evenly">
+    <DefaultCard
+        title="More Resources"
+    >
+        <p class="text-sm text-gray-500 dark:text-gray-400">Being proactive and helping out is a great way to get noticed by our staff team and
+        increase your chances of getting hired.</p>
 
-<h5 class="text-2xl font-semibold">More Resources</h5>
+        <div class="mt-5"></div>
 
-<p class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Being proactive and helping out is a great way to get noticed by our staff team and
-increase your chances of getting hired.</p>
+        <h6 class="text-xl font-semibold">Staff Guide</h6>
 
-<div class="mt-10"></div>
+        <p class="text-sm">Want to see the rules for what is expected of being a staff member? Then the Staff Guide
+        is the place to go!</p>
 
-<h6 class="text-xl font-semibold">Seed Guide</h6>
+        <div class="mt-5"></div>
 
-<div class="mt-5"></div>
+        <Button link={"/staff/guide"}>Staff Guide</Button>
 
-<p>Want to show off your skills as a developer and help contribute to Infinity Bot List's 
-open source infrastructure? Then you'll want to first seed your database with some test data.</p>
+        <div class="mt-5"></div>
 
-<div class="mt-5"></div>
+        <h6 class="text-xl font-semibold">Developer Guide</h6>
 
-<Button link={"/dev/seedguide"}>Database Seeding Guide</Button>
+        <p class="text-sm">Want to show off your skills as a developer and help contribute to Infinity Bot List's 
+        open source infrastructure? Then you'll want to first seed your database with some test data and learn how 
+        to get started.</p>
+
+        <div class="mt-5"></div>
+
+        <Button link={"/dev/guide"}>Developer Guide</Button>
+
+    </DefaultCard>
+</div>
