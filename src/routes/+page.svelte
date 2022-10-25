@@ -21,16 +21,22 @@
     </div>
 {/if}
 
-<div class="mt-10"></div>
+<div class="mt-15"></div>
 
 <h5 class="text-2xl font-semibold">More Resources</h5>
 
-<p>Being proactive and helping out is a great way to get noticed by our staff team and
+<p class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Being proactive and helping out is a great way to get noticed by our staff team and
 increase your chances of getting hired.</p>
+
+<div class="mt-10"></div>
 
 <h6 class="text-xl font-semibold">Seed Guide</h6>
 
+<div class="mt-5"></div>
+
 <p>Want to show off your skills as a developer and help contribute to Infinity Bot List's 
 open source infrastructure? Then you'll want to first seed your database with some test data.</p>
+
+<div class="mt-5"></div>
 
 <Button link={"/dev/seedguide"}>Database Seeding Guide</Button>
