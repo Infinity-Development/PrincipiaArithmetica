@@ -32,7 +32,7 @@
 
         <div class="mt-5"></div>
 
-        <h6 class="text-xl font-semibold">Staff Guide</h6>
+        <h6 class="text-xl font-semibold dark:text-white">Staff Guide</h6>
 
         <p class="text-sm">Want to see the rules for what is expected of being a staff member? Then the Staff Guide
         is the place to go!</p>
@@ -43,7 +43,7 @@
 
         <div class="mt-5"></div>
 
-        <h6 class="text-xl font-semibold">Reviewer Templates</h6>
+        <h6 class="text-xl font-semibold dark:text-white">Reviewer Templates</h6>
 
         <p class="text-sm">Want some quick approval/denial reasons for approving/denying bots? 
         It's always better to know some good approval/denial reasons especially for onboarding.</p>
@@ -54,7 +54,7 @@
 
         <div class="mt-5"></div>
 
-        <h6 class="text-xl font-semibold">Developer Guide</h6>
+        <h6 class="text-xl font-semibold dark:text-white">Developer Guide</h6>
 
         <p class="text-sm">Want to show off your skills as a developer and help contribute to Infinity Bot List's 
         open source infrastructure? Then you'll want to first seed your database with some test data and learn how 
