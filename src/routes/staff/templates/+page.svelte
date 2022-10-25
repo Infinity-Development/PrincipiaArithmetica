@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from "$lib/components/Button.svelte";
 import InputSm from "$lib/components/InputSm.svelte";
+import Input from "$lib/components/Input.svelte";
 import Template from "./Template.svelte";
 
     let listName = "[list name]"
@@ -53,13 +54,13 @@ Everything else seems to work as intended. Welcome to {listName}
     bind:value={listName}
 >Enter the list name here if you want this page to reflect a specific list</InputSm>
 
-<InputSm
+<Input
     id="commands"
     label="Commands"
     placeholder="Commands"
     minlength={0}
     bind:value={commands}
->Enter the commands here if you want this page to reflect specific commands that may have issues</InputSm>
+>Enter the commands here if you want this page to reflect specific commands that may have issues</Input>
 
 <Button
     link={"javascript:void(0)"}
