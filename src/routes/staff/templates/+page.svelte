@@ -42,6 +42,41 @@ Everything else seems to work as intended. Welcome to {listName}" />
 
 <div class="mt-5"></div>
 
+<h5 class="text-2xl font-semibold">Denial Templates</h5>
+<p class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">Whenever denying a bot, it is recommended to try using a template if one exists</p>
+
+<div class="flex flex-wrap justify-start justify-evenly">
+    <!--Place all deny reasons here-->
+    <Template
+        title="Bot Offline"
+        icon="📡"
+        reason="
+Your bot was offline when we tried to review it. 
+
+Please get your bot online and re-apply." />
+    <Template
+        title="API Abuse"
+        icon="🚫"
+        reason="
+Your bot has feature/commands that spams or abuses Discord's API. 
+
+This causes your bot to get rate-limited and can be considered Discord API Abuse. 
+
+Please fix the issue and re-apply." />
+    <Template
+        title="Requires Admin Perms"
+        icon="🛑"
+        reason="
+Some of your bot's features require the bot itself to have the ADMINISTRATOR permission. 
+
+NO bot requires administrator permissions to function. This is in fact a security risk that even Discord themselves dislike.
+
+Please change your bot to only require the permissions it truly needs and re-apply." />
+
+</div>
+
+<div class="mt-5"></div>
+
 <h5 class="text-2xl font-semibold">Variables</h5>
 <p class="block mb-1 text-md font-medium text-gray-900 dark:text-gray-300">You can substitute variables for values here to get the perfect reason</p>
 
