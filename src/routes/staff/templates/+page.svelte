@@ -32,7 +32,7 @@ Keep up the amazing work and welcome to {listName}
     " />
     <Template
         title="Minor Issues"
-        icon="👏"
+        icon="🤨"
         reason="
 Your bot seems to be having a few issues with {commands}. 
         
