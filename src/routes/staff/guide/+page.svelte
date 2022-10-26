@@ -5,6 +5,9 @@
     import GuideTitle from "./GuideTitle.svelte";
     import { page } from "$app/stores";
 	import Button from "$lib/components/Button.svelte";
+	import { dev } from "$app/environment";
+
+    let keyAdded = false
 
     function addKeyToRandomLoc() {
         if(!$page.data.key) {
@@ -19,18 +22,28 @@
             return;
         }
 
+        // Randomly choose a paragraph that is not the last 2 
+        let randomLoc = Math.floor(Math.random() * (possibleLocs.length - 2))
+
+        // Split it into words
+        let words = possibleLocs[randomLoc].innerHTML.split(" ")
+
         let rand = 0
         while(!flag) {
-            rand = Math.floor(Math.random() * possibleLocs.length)
-            console.log(rand, possibleLocs[rand])
-            if(!possibleLocs[rand] || possibleLocs[rand].innerHTML.includes("https://")) {
+            rand = Math.floor(Math.random() * words.length)
+            if(!words[rand] || words[rand].includes("https://")) {
                     continue
             }
             flag = true
         }
 
-        possibleLocs[rand].innerHTML += `. ${$page.data.key}`
+        words[rand] += `. ${$page.data.key}`
 
+        words[rand] = words[rand].replace("!", "").replace(".", "")
+
+        possibleLocs[randomLoc].innerHTML = words.join(" ")
+
+        keyAdded = true
     }
 </script>
 
@@ -152,9 +165,17 @@
 </GuidePara>
 
 {#if $page.data.key}
-    <Button link={"javascript:void(0)"} onclick={addKeyToRandomLoc}>Show Code</Button>
+    {#if !keyAdded}
+        <GreyText>Be sure to read the entire staff guide before continuing. You will be demoted if you do not properly follow the rules</GreyText>
+        <Button link={"javascript:void(0)"} onclick={addKeyToRandomLoc}>Show Code</Button>
+    {:else}
+        <GreyText>
+            The staff verification code is somewhere in the guide.<br/>
+            
+            Note that just trying to Ctrl-F it is not allowed and you may be demoted for lack of knowledge of the rules. Read the whole guide at least 5-10 times.
+        </GreyText>
+    {/if}
 {/if}
-
 
 <style>
     ul {
