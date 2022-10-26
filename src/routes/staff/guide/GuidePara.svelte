@@ -1,0 +1,3 @@
+<slot />
+
+<div class="mt-5"></div>
