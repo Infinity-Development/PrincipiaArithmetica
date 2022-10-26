@@ -1,5 +1,6 @@
 <script>
-	import GreyText from "$lib/components/GreyText.svelte";
+	import Button from "$lib/components/Button.svelte";
+import GreyText from "$lib/components/GreyText.svelte";
     import Changelog from "./Changelog.svelte";
 	import NewSeeder from "./NewSeeder.svelte";
 
@@ -55,6 +56,8 @@
         </ul>
     </div>
 </Changelog>
+
+<Button link={"/dev/guide"}>Back To Developer Guide</Button>
 
 <style>
     ul {
