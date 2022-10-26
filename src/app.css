@@ -5,3 +5,7 @@
 a {
     @apply text-blue-500;
 }
+
+html {
+    overflow: hidden !important;
+}
