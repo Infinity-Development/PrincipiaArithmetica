@@ -1,8 +1,7 @@
 <script>
-
-	import GreyText from "$lib/components/GreyText.svelte";
-
+import GreyText from "$lib/components/GreyText.svelte";
 </script>
+
 <h4 class="font-semibold text-xl">Windows</h4>
 
 <strong>WARNING:</strong> This guide is not well-tested yet. If it doesn't work, DM <code>Burgerking#5293</code>
@@ -67,7 +66,7 @@
         <strong>No database</strong> -&gt; To fix this do the following <code>CREATE DATABASE [USERNAME];</code>
     </li>
     <li class="li-seedshop-ul">
-        <strong>ERROR:  database "postgres" is being accessed by other users</strong> -&gt; To fix this do the following <code>SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'postgres' AND pid &lt&gt pg_backend_pid();</code>
+        <strong>ERROR:  database "postgres" is being accessed by other users</strong> -&gt; To fix this do the following: <span><code>SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'postgres' AND pid &lt&gt pg_backend_pid();</code></span>
     </li>
     <li class="li-seedshop-ul">
         <strong>win32 error/[INSERT AUTHENTICATION ERROR HERE]</strong>
