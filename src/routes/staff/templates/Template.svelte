@@ -1,7 +1,7 @@
 <script lang="ts">
 	import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
-    import Swal from 'sweetalert2';
-
+    import { toast } from '@zerodevx/svelte-toast'
+    
     import { templateTitleStore } from "./templatestore";
 
     export let title: string;
@@ -22,14 +22,7 @@
             document.body.removeChild(el);
         }
 
-        Swal.fire({
-            title: "Copied!",
-            text: "The template has been copied to your clipboard",
-            icon: "success",
-            timer: 800,
-            timerProgressBar: true,
-            showConfirmButton: false
-        });
+        toast.push("The template has been copied to your clipboard")
     }
 </script>
 

@@ -3,7 +3,10 @@
 
   import Menubar from "$lib/components/Menubar.svelte";
 
+  import { SvelteToast } from '@zerodevx/svelte-toast'
+
   export const prerender = false;
+
 </script>
 
 <!-- Make the div fill whole screen-->
@@ -13,6 +16,8 @@
     <Menubar />
     <div class="bg-white dark:bg-gray-900 text-black-700 dark:text-white bg-contain p-8">
       <slot />
+
+      <SvelteToast />
     </div>
   </div>
 </div>

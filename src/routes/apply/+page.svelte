@@ -4,6 +4,8 @@
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import Input from "$lib/components/Input.svelte";
 
+    import { toast } from '@zerodevx/svelte-toast'
+
     function validateQuestions() {
         let questionMap = new Map();
 
@@ -39,7 +41,7 @@
         let validate = validateQuestions();
 
         if(!validate) {
-            alert("Please answer all questions");
+            toast.push("Please answer all questions");
             return;
         }
 
@@ -57,10 +59,19 @@
             body: JSON.stringify(obj)
         }).then((res) => {
             if(res.status === 200) {
-                alert("Application sent!");
+                toast.push("Application sent!", {
+                    duration: 2000,
+                    theme: {
+                        '--toastColor': 'mintcream',
+                        '--toastBackground': 'rgba(72,187,120,0.9)',
+                        '--toastBarBackground': '#2F855A'
+                    }
+                });
             } else {
                 let resp = res.json().then(json => {
-                    alert(json.reason);
+                    toast.push(json.reason, {
+                        duration: 3000,
+                    });
                 });
                 
             }
