@@ -75,22 +75,22 @@
     Here are some pointers to keep in mind while testing a bot:<br/>
     <ul>
         <li>
-            ∞ When testing the bot please ensure you are doing an in depth test. Not just a handful of commands.
+            When testing the bot please ensure you are doing an in depth test. Not just a handful of commands.
         </li>
         <li>
-            ∞ If the bot goes offline during testing please message the owner either directly or in the #bot-feedback channel in the main server. Ex: "<em>Hello @Toxic Dev your bot is offline and I can't test it. Let me know when this is fixed so I can continue the test</em>". Please also do this if the bot is online but unresponsive.
+            If the bot goes offline during testing please message the owner either directly or in the #bot-feedback channel in the main server. Ex: "<em>Hello @Toxic Dev your bot is offline and I can't test it. Let me know when this is fixed so I can continue the test</em>". Please also do this if the bot is online but unresponsive.
         </li>
         <li>
-            ∞ Please refer to the #info channel on the Verification Center for rules of what's acceptable and what's not acceptable.
+            Please refer to the #info channel on the Verification Center for rules of what's acceptable and what's not acceptable.
         </li>
         <li>
-            ∞ If you have any questions please ping <code>@Staff Managers</code> or <code>@Head Staff Managers</code>. No question is a stupid question and we are always ready to help.
+            If you have any questions please ping <code>@Staff Managers</code> or <code>@Head Staff Managers</code>. No question is a stupid question and we are always ready to help.
         </li>
         <li>
-            ∞ After testing is complete please <em>do not remove the bot from the testing server. Arcadia will do this for you once you have added it to the main server</em>
+            After testing is complete please <em>do not remove the bot from the testing server. Arcadia will do this for you once you have added it to the main server</em>
         </li>
         <li>
-            ∞ <strong>You may test bots on your own server if you ever wish to. This may be required by some bots (eg. ticket bots, antinuke bots)</strong>
+            <strong>You may test bots on your own server if you ever wish to. This may be required by some bots (eg. ticket bots, antinuke bots)</strong>
         </li>
     </ul>
 </GuidePara>
@@ -109,10 +109,10 @@
     <p>Here are some commonly asked permissions and what to look out for if you see any such permission</p>
     <ul>
         <li>
-            ∞ <em>Administrator</em> - Bots that require the Administrator permission <em>on the bot account</em> to run should be denied always (<em>but please still test <code>Ninja Bot</code> and give feedback on all commands and what you would do in the training sandbox</em>)
+            <em>Administrator</em> - Bots that require the Administrator permission <em>on the bot account</em> to run should be denied always (<em>but please still test <code>Ninja Bot</code> and give feedback on all commands and what you would do in the training sandbox</em>)
         </li>
         <li>
-            ∞ <em>Manage Channel</em> - Ticket bots commonly require this. Always test the functionality of the bot to see if it does anything related to channels before approving or denying. Such bots may also need certain functionality to be tested on your own server (especially ticket bots).
+            <em>Manage Channel</em> - Ticket bots commonly require this. Always test the functionality of the bot to see if it does anything related to channels before approving or denying. Such bots may also need certain functionality to be tested on your own server (especially ticket bots).
         </li>
     </ul>
 </GuidePara>
@@ -125,6 +125,13 @@
 
 
 <style>
+    ul {
+        list-style: none;
+    }
+    li:before {
+        content: "∞ ";
+    }
+
     li {
         padding-left: 30px;
     }
