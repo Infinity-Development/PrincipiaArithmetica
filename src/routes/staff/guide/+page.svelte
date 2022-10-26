@@ -5,7 +5,6 @@
     import GuideTitle from "./GuideTitle.svelte";
     import { page } from "$app/stores";
 	import Button from "$lib/components/Button.svelte";
-	import { dev } from "$app/environment";
 
     let keyAdded = false
 
