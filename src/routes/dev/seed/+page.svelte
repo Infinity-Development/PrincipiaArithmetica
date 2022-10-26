@@ -56,7 +56,7 @@
             psql: SELECT * FROM seed_info;
         </code>
     </pre>
-    <span>Check that <code>nonce</code> and <code>version</code> match the <em>Current Seed Info</em> card</span>
+    <span>Check that the <code>nonce</code> and <code>version</code> match (or are newer than) the <em>Current Seed Info</em> card</span>
 </aside>
 
 <div class="mt-5"></div>
@@ -69,6 +69,8 @@
     bind:value={os}
 />
 
+<div class="mt-10"></div>
+
 {#if os == "windows"}
     <WinGuide />
 {:else if os == "linux"}
@@ -80,5 +82,16 @@
 <style>
     pre, code {
         white-space: pre-line;
+    }
+
+    ul {
+        list-style: none;
+    }
+    :global(.li-seedshop-ul:before) {
+        content: "∞ ";
+    }
+
+    :global(.li-seedshop-ul) {
+        padding-left: 30px;
     }
 </style>
