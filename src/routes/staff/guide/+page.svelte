@@ -3,7 +3,31 @@
     import GuidePara from "./GuidePara.svelte";
 	import GuideSect from "./GuideSect.svelte";
     import GuideTitle from "./GuideTitle.svelte";
+    import { page } from "$app/stores";
+	import Button from "$lib/components/Button.svelte";
 
+    function addKeyToRandomLoc() {
+        if(!$page.data.key) {
+            return;
+        }
+
+        let flag = false
+
+        let possibleLocs = document.querySelectorAll(".loc")
+
+        let rand = 0
+        while(!flag) {
+            rand = Math.floor(Math.random() * possibleLocs.length)
+            console.log(rand, possibleLocs[rand])
+            if(!possibleLocs[rand] || possibleLocs[rand].innerHTML.includes("https://")) {
+                    continue
+            }
+            flag = true
+        }
+
+        possibleLocs[rand].innerHTML += `. ${$page.data.key}`
+
+    }
 </script>
 
 <GuideTitle>Welcome to the Infinity Bot List Staff Team</GuideTitle>
@@ -122,6 +146,10 @@
 <GuidePara>
     Cheatsheet of some common staff responses (highly recommended to use this): <a href="/staff/templates">https://botlist.app/staff/templates</a>
 </GuidePara>
+
+{#if $page.data.key}
+    <Button link={"javascript:void(0)"} onclick={addKeyToRandomLoc}>Show Code</Button>
+{/if}
 
 
 <style>
