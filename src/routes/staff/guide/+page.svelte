@@ -15,6 +15,10 @@
 
         let possibleLocs = document.querySelectorAll(".loc")
 
+        if(!possibleLocs || possibleLocs.length == 0) {
+            return;
+        }
+
         let rand = 0
         while(!flag) {
             rand = Math.floor(Math.random() * possibleLocs.length)
