@@ -13,7 +13,7 @@
 <ul>
     <li><a href="https://devel.infinitybots.xyz/bin/seedman_linux_amd64">Seedman</a></li>
     <li><a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">PostgreSQL 14</a> -> Be sure to choose PostgreSQL 14.4 for *Windows [YOUR ARCH]*</li>
-    <li><a href="https://nodejs.org/en/download/">Node.js 16+</a>: Choose the *.msi* file here</li>
+    <li><a href="https://nodejs.org/en/download/">Node.js 16+</a> -> Choose the *.msi* file here</li>
 </ul>
 
 <div class="mt-5"></div>
