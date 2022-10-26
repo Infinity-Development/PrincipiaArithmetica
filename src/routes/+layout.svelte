@@ -9,6 +9,10 @@
 
 </script>
 
+<svelte:head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</svelte:head>
+
 <!-- Make the div fill whole screen-->
 <div class="h-screen w-screen bg-white dark:bg-gray-900">
   <div class="flex flex-col h-full">
