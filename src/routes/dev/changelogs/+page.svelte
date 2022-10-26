@@ -31,7 +31,7 @@
     <span slot="date">Wednesday, 26th October 2022</span>
     <div slot="entry">
         <NewSeeder />
-        <span>As it has been a long time (seedguide is unmaintained), not all changes are listed below but there were several.</span>
+        <span>As it has been a long time (seedguide is unmaintained), not all changes are listed below but there were several:</span>
         <ul>
             <li>
                 <code>avatar</code> column has been added to the <code>bots</code> table to store the avatar of bots.
