@@ -8,4 +8,5 @@ a {
 
 html {
     overflow-x: hidden !important;
+    word-wrap: break-word !important;
 }

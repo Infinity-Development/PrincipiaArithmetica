@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
  
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch, url }) {
+export async function load({ fetch }) {
     let seedData = await fetch(`https://devel.infinitybots.xyz/latest_seed.json`);
 
     if(!seedData.ok) {
