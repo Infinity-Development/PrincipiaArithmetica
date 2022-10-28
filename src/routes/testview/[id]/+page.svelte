@@ -34,6 +34,17 @@
     </div>
 {/each}
 
+{#if $page.data.state === "pending-approval"}
+    <h2 class="text-3xl font-bold">Interview</h2>
+    {#each $page.data.interview.questions as question}
+    <div class="mb-4">
+        <h3 class="text-2xl font-bold">{question.question}</h3>
+        <p class="text-gray-500">{question.para}</p>
+        <p>{$page.data.interview.answers[question.id]}</p>
+    </div>
+    {/each}
+{/if}
+
 {#if $page.data.state == "pending"}
     <Button link={"javascript:void(0)"} onclick={sendInterview}>Send Interview</Button>
 {/if}
