@@ -10,7 +10,7 @@
 {#if $page.data && $page.data.positions}
     <div class="flex flex-wrap justify-center items-center justify-evenly">
         {#each $page.data.positions as position}
-	    {#if position.app_site_rendered}	
+	    {#if $page.data[position].app_site_rendered}	
             	<div>
                 	<Card
                     		title={$page.data[position].name}
