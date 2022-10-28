@@ -2,6 +2,7 @@
     import { page } from "$app/stores"
 	import Button from "$lib/components/Button.svelte";
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
+	import GreyText from "$lib/components/GreyText.svelte";
 	import Input from "$lib/components/Input.svelte";
 
     import { toast } from '@zerodevx/svelte-toast'
@@ -68,7 +69,7 @@
                     }
                 });
             } else {
-                let resp = res.json().then(json => {
+                res.json().then(json => {
                     toast.push(json.reason, {
                         duration: 3000,
                     });
@@ -98,4 +99,5 @@
     >{question.para}</Input>
 {/each}
 
-<Button onclick={() => sendApp()} link={"javascript:void(0)"}>Next</Button>
+<GreyText>Ready to submit this application for review using our PounceCat system? Be sure to review everything first for spelling!</GreyText>
+<Button onclick={() => sendApp()} link={"javascript:void(0)"} showArrow={false}>Pounce!</Button>

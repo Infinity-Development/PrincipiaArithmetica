@@ -26,6 +26,10 @@ export async function load({ fetch, params, parent }) {
         throw error(400, "You are not the creator of this application.");
     }
 
+    if(appData.state != "pending") {
+        throw error(400, "This application is not pending an interview.");
+    }
+
     let res = await fetch("https://sovngarde.infinitybots.gg/herpes/zoster")
 
     if (res.ok) {
