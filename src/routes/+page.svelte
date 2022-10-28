@@ -10,21 +10,23 @@
 {#if $page.data && $page.data.positions}
     <div class="flex flex-wrap justify-center items-center justify-evenly">
         {#each $page.data.positions as position}
-            <div>
-                <Card
-                    title={$page.data[position].name}
-                    link={"/apply?position=" + position}
-                    linkText={"Apply now"}
-                    showArrow={false}
-                    showButton={$page.data[position].open}
-                >
-                    {@html $page.data[position].info.replaceAll("\n", "<br/>")}
+	    {#if position.app_site_rendered}	
+            	<div>
+                	<Card
+                    		title={$page.data[position].name}
+                    		link={"/apply?position=" + position}
+                    		linkText={"Apply now"}
+                    		showArrow={false}
+                    		showButton={$page.data[position].open}
+                	>
+                    		{@html $page.data[position].info.replaceAll("\n", "<br/>")}
 
-                    {#if !$page.data[position].open}
-                        <GreyText>This position is currently closed</GreyText>
-                    {/if}
-                </Card>
-            </div>
+                    		{#if !$page.data[position].open}
+                        		<GreyText>This position is currently closed</GreyText>
+                    		{/if}
+                	</Card>
+            	</div>
+	    {/if}
         {/each}
     </div>
 {/if}
