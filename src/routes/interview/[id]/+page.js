@@ -26,7 +26,7 @@ export async function load({ fetch, params, parent }) {
         throw error(400, "You are not the creator of this application.");
     }
 
-    if(appData.state != "pending") {
+    if(appData.state != "pending-interview") {
         throw error(400, "This application is not pending an interview.");
     }
 
