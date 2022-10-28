@@ -3,6 +3,7 @@
 	import Button from "$lib/components/Button.svelte";
 	import Card from "$lib/components/Card.svelte";
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
+	import GreyText from "$lib/components/GreyText.svelte";
 </script>
 
 <!--3 cards per row-->
@@ -15,8 +16,13 @@
                     link={"/apply?position=" + position}
                     linkText={"Apply now"}
                     showArrow={false}
+                    showButton={$page.data[position].open}
                 >
                     {@html $page.data[position].info.replaceAll("\n", "<br/>")}
+
+                    {#if !$page.data[position].open}
+                        <GreyText>This position is currently closed</GreyText>
+                    {/if}
                 </Card>
             </div>
         {/each}
