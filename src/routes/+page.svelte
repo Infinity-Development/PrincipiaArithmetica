@@ -30,11 +30,12 @@
             	</div>
 	    {/if}
         {/each}
-	{#each [...Array(extPos)] as extPos}
+	{#each [...Array(extPos)] as _}
 		<div class="hidden lg:block">
 			<Card
 				title={"Flying in soon..."}
 				link={"#"}
+				linkText={""}
 				showArrow={false}
 				showButton={false}
 			>
