@@ -87,7 +87,7 @@
     }
 
     function cast(a: any): string {
-        return a
+        return a.toString()
     }
 </script>
 
