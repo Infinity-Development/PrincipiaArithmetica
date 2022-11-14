@@ -22,6 +22,31 @@
         offset: 0
     }
 
+    let lineCount = 0
+
+    async function getLineCount() {
+        statusMsg = `Fetching line count of ${file}...`
+
+        let res = await fetch(`${ip}/${file}/length`, {
+            headers: {
+                "PSK": psk
+            }
+        })
+
+        if(!res.ok) {
+            toast.push(`Got ${res.status}. Is the PSK correct?`)
+            let resText = await res.text()
+            statusMsg = `Got ${res.status}. Is the PSK correct? ${resText}`
+            return
+        }
+
+        let data = await res.json()
+
+        lineCount = data.length
+
+        statusMsg = `Got line count of ${lineCount}`
+    }
+
     async function getLogEntries() {
         statusMsg = `Fetching ${pageData.limit} entries from offset ${pageData.offset}...`
 
@@ -43,6 +68,8 @@
         logData = data
 
         statusMsg = `Fetched ${pageData.limit} entries from offset ${pageData.offset}`
+
+        await getLineCount()
     }
 
     async function connect() {
@@ -88,6 +115,13 @@
 
     function cast(a: any): string {
         return a.toString()
+    }
+
+    function castToObj(a: any): any {
+        if(typeof a === "object") {
+            return a
+        }
+        return {}
     }
 </script>
 
@@ -140,7 +174,17 @@
         <span>
             {#each Object.entries(entry) as [key, value]}
                 {#if key !== "ts"}
-                    <p><span class="font-semibold">{title(key)}:</span> {cast(value).replaceAll("<", "&lt").replaceAll(">", "&gt")}</p>
+                    <!--Case where value is a object-->
+                    {#if typeof value === "object"}
+                        <p><span class="font-semibold">{title(key)}:</span></p>
+                        {#each Object.entries(castToObj(value)) as [key2, value2]}
+                            <ul>
+                                <li><span class="ml-2">{title(key2)}: {cast(value2)}</span></li>
+                            </ul>
+                        {/each}
+                    {:else}
+                        <p><span class="font-semibold">{title(key)}:</span> {cast(value).replaceAll("<", "&lt").replaceAll(">", "&gt")}</p>
+                    {/if}
                 {/if}
             {/each}
             <p><span class="font-semibold">Timestamp:</span> <span class="text-md text-gray-500 dark:text-gray-400 mb-2">{new Date(entry.ts * 1000)}</span></p>
@@ -148,3 +192,21 @@
         <div class="mt-5"></div>
     {/if}
 {/each}
+
+{#if logData.length > 0}
+    <div class="flex justify-center items-center">
+        {#if pageData.offset >= pageData.limit}
+            <Button onclick={() => {
+                pageData.offset -= pageData.limit
+                getLogEntries()
+            }} link={"javascript:void(0)"} showArrow={false}>Previous Page</Button>
+        {/if}
+        {#if logData.length == pageData.limit}
+            <Button onclick={() => {
+                pageData.offset += pageData.limit
+                getLogEntries()
+            }} link={"javascript:void(0)"} showArrow={false}>Next Page</Button>
+        {/if}
+    </div>
+    <span>Line count: {lineCount}</span>
+{/if}
