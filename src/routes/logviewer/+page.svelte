@@ -45,6 +45,8 @@
         lineCount = data.length
 
         statusMsg = `Got line count of ${lineCount}`
+
+        pageData = pageData
     }
 
     async function getLogEntries() {
@@ -70,6 +72,8 @@
         statusMsg = `Fetched ${pageData.limit} entries from offset ${pageData.offset}`
 
         await getLineCount()
+
+        pageData = pageData
     }
 
     async function connect() {
@@ -123,6 +127,17 @@
         }
         return {}
     }
+
+    function setLimit() {
+        let limit = parseInt(prompt("Enter new limit") || "0")
+
+        if(!limit || limit > 300) {
+            toast.push("Invalid limit")
+            return
+        }
+
+        pageData.limit = limit
+    }
 </script>
 
 <div class="flex justify-center items-center">
@@ -168,6 +183,16 @@
         <p><span class="font-semibold">Status:</span> {statusMsg}</p>
     </DefaultCard>
 </div>
+<div class="flex justify-center items-center">
+    <DefaultCard title="Options">
+        <Button onclick={() => setLimit()} link={"javascript:void(0)"} showArrow={false}>Set Limit</Button>
+        <div class="mt-5"></div>
+        <p><span class="font-semibold">Limit: </span>{pageData.limit}</p>
+        <p><span class="font-semibold">Current Offset: </span>{pageData.offset}</p>
+        <p><span class="font-semibold">Current Page: </span>{Math.floor(pageData.offset/pageData.limit) + 1}</p>
+        <p><span class="font-semibold">Line Count: </span> {lineCount}</p>
+    </DefaultCard>
+</div>
 
 {#each logData as entry}
     {#if filters.allowedLevels.includes(entry.level)}
@@ -199,14 +224,21 @@
             <Button onclick={() => {
                 pageData.offset -= pageData.limit
                 getLogEntries()
-            }} link={"javascript:void(0)"} showArrow={false}>Previous Page</Button>
+            }} link={"javascript:void(0)"} showArrow={false}>Previous</Button>
         {/if}
+        <div class="mr-5"></div>
+        <Button onclick={() => {
+            // Using lineCount, get the total number of pages
+            let page = Math.floor(lineCount/pageData.limit)
+            pageData.offset = pageData.limit * page
+            getLogEntries()
+        }} link={"javascript:void(0)"} showArrow={false}>Last</Button>
+        <div class="mr-5"></div>
         {#if logData.length == pageData.limit}
             <Button onclick={() => {
                 pageData.offset += pageData.limit
                 getLogEntries()
-            }} link={"javascript:void(0)"} showArrow={false}>Next Page</Button>
+            }} link={"javascript:void(0)"} showArrow={false}>Next</Button>
         {/if}
     </div>
-    <span>Line count: {lineCount}</span>
 {/if}
