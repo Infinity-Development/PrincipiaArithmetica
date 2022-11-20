@@ -20,6 +20,7 @@
         const searchParams = new URLSearchParams(window.location.search)
 
         let taskId = searchParams.get("tid");
+        let act = searchParams.get("act");
 
         let res = await fetch(`https://spider.infinitybotlist.com/cosmog/tasks/${taskId}`)
         
@@ -34,14 +35,19 @@
             status = "Waiting for the task to start..."
         } else if(resp.startsWith("{")) {
             stopAutoUpdate = true
-            downloadTextFile(resp, taskId+".json")
+            downloadTextFile(resp, act+"."+taskId+".json")
         } else {
             status = resp
         }
     }
 
     if(browser) {
-        setInterval(() => updateStatus(), 1500)
+        setInterval(() => {
+            if(stopAutoUpdate) {
+                return
+            }
+            updateStatus()
+        }, 1500)
     }
 </script>
 <h1 class="text-2xl font-semibold">Collecting data...</h1>
