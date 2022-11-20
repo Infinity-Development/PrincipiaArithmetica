@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { browser } from "$app/environment";
+	import Button from "$lib/components/Button.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
+	import { toast } from "@zerodevx/svelte-toast";
 
+    let status = "Loading... try clicking the 'Update Status' button?";
+
+    let stopAutoUpdate = false
 
     function downloadTextFile(text: string, name: string) {
         const a = document.createElement('a');
@@ -9,8 +15,37 @@
         a.download = name;
         a.click();
     }  
+
+    async function updateStatus() {
+        const searchParams = new URLSearchParams(window.location.search)
+
+        let taskId = searchParams.get("tid");
+
+        let res = await fetch(`https://spider.infinitybotlist.com/cosmog/tasks/${taskId}`)
+        
+        let resp = await res.text();
+
+        if(!res.ok) {    
+            toast.push(resp);
+            return;
+        }
+
+        if(resp == "WAITING") {
+            status = "Waiting for the task to start..."
+        } else if(resp.startsWith("{")) {
+            stopAutoUpdate = true
+            downloadTextFile(resp, taskId+".json")
+        } else {
+            status = resp
+        }
+    }
+
+    if(browser) {
+        setInterval(() => updateStatus(), 1500)
+    }
 </script>
 <h1 class="text-2xl font-semibold">Collecting data...</h1>
 <GreyText>
-    The action you have selected may take a bit of time to process. Do not close this tab until it has finished!
+    {status}
 </GreyText>    
+<Button on:click={() => updateStatus()} link={"javascript:void(0)"}>Update Status Manually</Button>
