@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
+	import { apiUrl } from "$lib/url";
 
 
     async function loginUser() {
@@ -10,7 +11,7 @@
 
         console.log(userId, apiToken);
 
-        let res = await fetch(`https://spider.infinitybotlist.com/_duser/${userId}`)
+        let res = await fetch(`${apiUrl}/_duser/${userId}`)
 
         if (!res.ok) {
             alert("Invalid user id or api token");

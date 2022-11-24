@@ -2,6 +2,7 @@
 	import Button from "$lib/components/Button.svelte";
 import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
     import GreyText from "$lib/components/GreyText.svelte";
+	import { apiUrl } from "$lib/url";
 
 </script>
 
@@ -40,7 +41,7 @@ import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
             </strong>
         </p>
         <div class="mt-3"></div>
-        <Button link={"https://spider.infinitybotlist.com/login/dr"}>Request My Data</Button>
+        <Button link={`${apiUrl}/login/dr`}>Request My Data</Button>
     </DefaultCardSm>
     <DefaultCardSm title="Data Deletion">
         <GreyText>This action is IRREVERSIBLE. Think twice before continuing.</GreyText>
@@ -54,7 +55,7 @@ import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
             </strong>
         </p>
         <div class="mt-3"></div>
-        <Button link={"https://spider.infinitybotlist.com/login/ddr"}>Delete My Data</Button>
+        <Button link={`${apiUrl}/login/ddr`}>Delete My Data</Button>
     </DefaultCardSm>
 </div>
 

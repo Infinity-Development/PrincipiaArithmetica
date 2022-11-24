@@ -1,6 +1,7 @@
 <script>
 	import Button from "$lib/components/Button.svelte";
 import GreyText from "$lib/components/GreyText.svelte";
+	import { apiUrl } from "$lib/url";
     import Changelog from "./Changelog.svelte";
 	import NewSeeder from "./NewSeeder.svelte";
 
@@ -41,21 +42,42 @@ import GreyText from "$lib/components/GreyText.svelte";
                 <code>apps</code> table has been added to store applications
             </li>
             <li>
-                <em>Development Notice:</em> Please use the <code>https://spider.infinitybotlist.com/_duser/USERID</code> endpoint when fetching users. 
+                <em>Development Notice:</em> Please use the <code>{apiUrl}/_duser/USERID</code> endpoint when fetching users. 
                 
                 If running as a local service, use the <code>localhost</code> equivalent. See Popplio's source code for more information.
             </li>
             <li>
                 New endpoints on Popplio (v6 only, these API endpoints can be used on v4 if required):
                 <ul>
-                    <li>Get Pack URL: <code>https://spider.infinitybotlist.com/packs/URL</code> (e.g: <code>https://spider.infinitybotlist.com/packs/buildcommunity</code>)</li>
-                    <li>Get All Packs: <code>https://spider.infinitybotlist.com/packs/all</code></li>
+                    <li>Get Pack URL: <code>{apiUrl}/packs/URL</code> (e.g: <code>{apiUrl}/packs/buildcommunity</code>)</li>
+                    <li>Get All Packs: <code>{apiUrl}/packs/all</code></li>
                 </ul>
             </li>
             <li>Large amount of refactors in Arcadis, including a better onboarding process, and the use of Rust workspaces to improve code layout</li>
         </ul>
     </div>
 </Changelog>
+
+<Changelog>
+    <span slot="date">Thursday, 24th Nov 2022</span>
+    <div slot="entry">
+        <NewSeeder />
+        <span>As it has been a long time, not all changes are listed below but there were several refactors to the DB structure</span>
+        <ul>
+            <li>
+                <code>hepatitis-antiviral</code> is about to be rewritten to not rely on reflection and other techniques.
+            </li>
+            <li>
+                <code>CSP</code> headers are now properly set on the client
+            </li>
+            <li>
+                <em>Development Notice:</em> Panel is being rewritten to Prinicipia Arithmetica by Dillon and has been removed from v4 (it anyways broke during all the refactors)
+            </li>
+            <li>Large amount of refactors in Popplio, including a better routing system</li>
+        </ul>
+    </div>
+</Changelog>
+
 
 <Button link={"/dev/guide"}>Back To Developer Guide</Button>
 

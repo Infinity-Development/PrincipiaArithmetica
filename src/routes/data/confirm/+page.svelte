@@ -2,6 +2,7 @@
 	import { browser } from "$app/environment";
 	import Button from "$lib/components/Button.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
+	import { apiUrl } from "$lib/url";
 	import { toast } from "@zerodevx/svelte-toast";
 
     let status = "Loading... try clicking the 'Update Status' button?";
@@ -22,7 +23,7 @@
         let taskId = searchParams.get("tid");
         let act = searchParams.get("act");
 
-        let res = await fetch(`https://spider.infinitybotlist.com/cosmog/tasks/${taskId}`)
+        let res = await fetch(`${apiUrl}/cosmog/tasks/${taskId}`)
         
         let resp = await res.text();
 
