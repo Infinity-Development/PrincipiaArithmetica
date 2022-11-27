@@ -2,8 +2,8 @@
     let svgClassList = "w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white";
 </script>
 
-<div class="grid grid-cols-7">
-    <aside class="self-start sticky top-0 col-span-1">
+<div class="flex">
+    <aside class="self-start sticky top-0">
         <ul class="space-y-2">
             <li>
             <span class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white">
@@ -55,8 +55,4 @@
 
         </ul>
     </aside>
-
-    <div class="px-4">
-        <slot />
-    </div>
 </div>
