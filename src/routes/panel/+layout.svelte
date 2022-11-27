@@ -12,7 +12,9 @@
     <!--Create sidebar and put content to the right of it-->
     <div>
         <div class="flex flex-cols">
-            <PanelSidebar />
+            <span class="hidden md:block lg:block">
+                <PanelSidebar />
+            </span>
             <div class="panel-content">
                 <div class="panel-content-inner px-4">
                     <slot />
