@@ -1,14 +1,13 @@
 <script>
     import { page } from "$app/stores"
-	import GreyText from "$lib/components/GreyText.svelte";
 
     console.log($page.data)
 
     let svgClassList = "w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white";
 </script>
 
-<div class="flex stick-ontop">
-    <aside class="hidden md:block sticky top-0 stick-ontop" style="display: unset">
+<div class="flex flex-cols stick-ontop">
+    <aside class="hidden md:block sticky top-0 stick-ontop">
         <ul class="space-y-2">
             <li>
                 <span class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white">
