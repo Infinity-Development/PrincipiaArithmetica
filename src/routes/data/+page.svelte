@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from "$lib/components/Button.svelte";
-import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
+    import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
     import GreyText from "$lib/components/GreyText.svelte";
 	import { apiUrl } from "$lib/url";
 
