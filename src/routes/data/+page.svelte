@@ -4,6 +4,37 @@ import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
     import GreyText from "$lib/components/GreyText.svelte";
 	import { apiUrl } from "$lib/url";
 
+    async function reqData() {
+        let res = await fetch(`${apiUrl}/login-cosmog`, {
+            method: "POST",
+            body: JSON.stringify({
+                action: "dr"
+            })
+        });
+
+        if(res.ok) {
+            let data = await res.json();
+            window.location.href = data.redirect
+        } else {
+            alert("An error occurred while fetching from our API");
+        }
+    }
+
+    async function delData() {
+        let res = await fetch(`${apiUrl}/login-cosmog`, {
+            method: "POST",
+            body: JSON.stringify({
+                action: "ddr"
+            })
+        });
+
+        if(res.ok) {
+            let data = await res.json();
+            window.location.href = data.redirect
+        } else {
+            alert("An error occurred while fetching from our API");
+        }
+    }
 </script>
 
 <h2 class="text-2xl font-semibold">Your Data</h2>
@@ -41,7 +72,7 @@ import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
             </strong>
         </p>
         <div class="mt-3"></div>
-        <Button link={`${apiUrl}/login/dr`}>Request My Data</Button>
+        <Button link={"javascript:void(0)"} onclick={() => reqData()}>Request My Data</Button>
     </DefaultCardSm>
     <DefaultCardSm title="Data Deletion">
         <GreyText>This action is IRREVERSIBLE. Think twice before continuing.</GreyText>
@@ -55,7 +86,7 @@ import DefaultCardSm from "$lib/components/DefaultCardSm.svelte";
             </strong>
         </p>
         <div class="mt-3"></div>
-        <Button link={`${apiUrl}/login/ddr`}>Delete My Data</Button>
+        <Button link={"javascript:void(0)"} onclick={() => delData()}>Delete My Data</Button>
     </DefaultCardSm>
 </div>
 
