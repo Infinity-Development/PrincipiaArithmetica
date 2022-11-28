@@ -2,12 +2,12 @@
     let svgClassList = "w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white";
 </script>
 
-<div class="flex">
-    <aside class="self-start sticky top-0">
+<div class="flex stick-ontop">
+    <aside class="hidden md:block sticky top-0 stick-ontop" style="display: unset">
         <ul class="space-y-2">
             <li>
             <span class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white">
-                <h1 class="font-semibold text-xl">Quick <span class="text-yellow-400">Navigation</span></h1>
+                <h1 class="font-semibold text-xl">Quick Navigation</h1>
             </span>
             </li>
             <li>
@@ -52,7 +52,21 @@
                 <span class="flex-1 ml-3 whitespace-nowrap">Help</span>
                 </a>
             </li>
-
         </ul>
     </aside>
+
+    <div class="panel-content">
+        <div class="panel-content-inner px-4">
+            <slot />
+        </div>
+    </div>
 </div>
+
+<style>
+.stick-ontop {
+  position: -webkit-sticky !important; /* Safari */
+  position: sticky !important;
+  top: 10% !important;
+  align-self: flex-start;
+}
+</style>
