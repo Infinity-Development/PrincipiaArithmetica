@@ -9,4 +9,5 @@
 
 <h3 class="text-xl font-semibold">{name}</h3>
 <GreyText>{description}</GreyText>
-<Button link={`https://github.com/InfinityBotList/${repoName}`}>View {name}}</Button>
+<Button link={`https://github.com/InfinityBotList/${repoName}`}>View {name}</Button>
+<div class="mb-2"></div>
