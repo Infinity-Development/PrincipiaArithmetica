@@ -31,6 +31,7 @@ export async function load({ parent, fetch }) {
             hadmin: false,
             loggedIn: true,
             user: null,
+	    errStatus: res.status
         }
     }
 }
