@@ -10,7 +10,7 @@ import GreyText from "$lib/components/GreyText.svelte";
 
 <h5 class="font-semibold">Required Downloads</h5>
 <ul>
-    <li><a href="https://devel.infinitybots.xyz/bin/seedman_linux_amd64">Seedman</a></li>
+    <li><a href="https://devel.infinitybots.xyz/shadowsight/windows">IBL client</a></li>
     <li><a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">PostgreSQL 14</a> -> Be sure to choose PostgreSQL 14.4 for *Windows [YOUR ARCH]*</li>
     <li><a href="https://nodejs.org/en/download/">Node.js 16+</a> -> Choose the *.msi* file here</li>
 </ul>
@@ -42,7 +42,7 @@ import GreyText from "$lib/components/GreyText.svelte";
         </ul>
     </li>
     <li>
-        Go to where <code>seedman</code> was downloaded, then run <code>seedman_windows_amd64.exe</code> to setup a test database with test data. DM <code>Burgerking#5293</code> if there are any errors.
+        Go to where <code>ibl.exe</code> was downloaded. This is the client utility you will need to run for all current and future development needs
     </li>
 </ol>
 

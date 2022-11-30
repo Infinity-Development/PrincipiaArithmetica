@@ -78,6 +78,34 @@ import GreyText from "$lib/components/GreyText.svelte";
     </div>
 </Changelog>
 
+<Changelog>
+    <span slot="date">Thursday, 30th Nov 2022</span>
+    <div slot="entry">
+        <NewSeeder />
+        <span>As it has been a long time, not all changes are listed below but there were several refactors to the DB structure *again*</span>
+        <ul>
+            <li>
+                <code>premium_period_length</code> is now a <code>interval</code>.
+            </li>
+            <li>
+                <code>start_premium_period</code> is now a <code>timestamptz</code>
+            </li>
+            <li>
+                The <code>Patch Bot Vanity</code> API has been added to Popplio to allow for vanity URLs of bots to be changed
+            </li>
+            <li>
+                The <code>Special Login</code> API endpoint series has been refactored and now uses a <code>POST</code> request instead of a <code>GET</code> request to ensure tokens are not transmitted in the URL
+            </li>
+            <li>
+                Rewriting <code>hepatitis-antiviral</code> is no longer planned as it is temporary until v4 is released anyways
+            </li>
+            <li>
+                Seeding now happens using the new <code>ibl</code> client. Source code is available <a href="https://github.com/InfinityBotList/ibl">here</a>. Licensed under the AGPL3.
+            </li>
+            <li>Minor bug fixes to Popplio</li>
+        </ul>
+    </div>
+</Changelog>
 
 <Button link={"/dev/guide"}>Back To Developer Guide</Button>
 

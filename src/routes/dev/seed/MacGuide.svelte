@@ -7,9 +7,7 @@
 <h5 class="font-semibold">Required Downloads</h5>
 
 <ul>
-    <li>
-        <a href="https://devel.infinitybots.xyz/bin/seedman_mac_amd64">Seedman (Intel)</a> <strong>OR</strong> <a href="https://devel.infinitybots.xyz/bin/seedman_mac_arm64">Seedman (Apple Silicon)</a>
-    </li>
+    <li><a href="https://devel.infinitybots.xyz/shadowsight/darwin">IBL client (amd64 = Intel, arm64 = Apple Silicon)</a></li>
     <li>
         <a href="https://brew.sh">Homebrew</a> -> Run the script provided on their webpage to install Homebrew
     </li>
@@ -25,7 +23,7 @@
         Start PostgreSQL using <code>brew services restart postgresql</code>
     </li>
     <li>
-        Go to where <code>seedman</code> was downloaded, then find <code>seedman_mac_ARCH</code> (<code>amd64</code> is ARCH on Intel and <code>arm64</code> for Apple M1) <strong>in finder</strong>
+        Go to where <code>ibl</code> was downloaded, then find <code>ibl</code><strong>in finder</strong>
     </li>
     <li>
         <em>macOS is a bit annoying in regards to codesigning:</em> This means you need to first double-click normally and click <code>Ok</code> when the verification errors pops up. Then right click the downloaded file and then click <code>Open</code> to actually run the program to setup a test database with test data. DM <code>Burgerking#5293</code> if there are any errors besides this.

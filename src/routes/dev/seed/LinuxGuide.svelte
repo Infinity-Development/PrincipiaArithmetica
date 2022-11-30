@@ -6,16 +6,16 @@
 
 <h5 class="font-semibold">Required Downloads</h5>
 <ul>
-    <li><a href="https://devel.infinitybots.xyz/bin/seedman_linux_amd64">Seedman</a></li>
+    <li><a href="https://devel.infinitybots.xyz/shadowsight/linux">IBL client</a></li>
 </ul>
 
 <div class="mt-5"></div>
 
 <ol class="list-decimal list-inside">
     <li>
-        Install Node.js 16+ and PostgreSQL using your linux distributions package manager. There are too many distributions to list specific guides. On Ubuntu, <code>seedman</code> has experimental support for setting this up for you.
+        Install Node.js 16+ and PostgreSQL using your linux distributions package manager. There are too many distributions to list specific guides.
     </li>
     <li>
-        Run <code>seedman</code> in terminal.
+        Install <code>ibl</code> to your preferred location, make it executable and add it your PATH.
     </li>
 </ol>
