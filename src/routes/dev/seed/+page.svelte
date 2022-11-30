@@ -32,8 +32,6 @@
     bind:value={os}
 />
 
-<div class="mt-10"></div>
-
 {#if os == "windows"}
     <WinGuide />
 {:else if os == "linux"}
@@ -41,6 +39,8 @@
 {:else if os == "mac"}
     <MacGuide />
 {/if}
+
+<div class="mt-10"></div>
 
 <h4 class="text-xl font-semibold">Step 2: Do the thing!</h4>
 
