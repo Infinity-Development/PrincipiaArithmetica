@@ -34,10 +34,6 @@
 
 <div class="mt-10"></div>
 
-<h4 class="text-xl font-semibold">Step 1: Do the thing!</h4>
-
-Run <code>ibl seed apply latest</code>. It's that simple! If you need to update <code>ibl</code> client, just run <code>ibl update</code>!
-
 {#if os == "windows"}
     <WinGuide />
 {:else if os == "linux"}
@@ -45,6 +41,10 @@ Run <code>ibl seed apply latest</code>. It's that simple! If you need to update 
 {:else if os == "mac"}
     <MacGuide />
 {/if}
+
+<h4 class="text-xl font-semibold">Step 2: Do the thing!</h4>
+
+Run <code>ibl seed apply latest</code>. It's that simple! If you need to update <code>ibl</code> client, just run <code>ibl update</code>!
 
 <style>
     code {
