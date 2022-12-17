@@ -30,7 +30,12 @@ export async function load({ fetch, params, parent }) {
         throw error(400, "This application is not pending an interview.");
     }
 
-    let res = await fetch("https://sovngarde.infinitybots.gg/herpes/zoster")
+    let res = await fetch(`https://sovngarde.infinitybots.gg/herpes/zoster?app_id=${params.id}&user_id=${session.userId}`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": session.userToken
+        }  
+    })
 
     if (res.ok) {
         let json = await res.json();
