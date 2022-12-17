@@ -95,7 +95,7 @@
         id={question.id}
         label={question.question}
         placeholder={question.placeholder}
-        minlength={question.short ? 50: 1}
+        minlength={question.short ? 1: 50}
     >{question.para}</Input>
 {/each}
 
