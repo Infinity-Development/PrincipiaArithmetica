@@ -23,7 +23,7 @@
 
             console.log(userInpValue)
 
-            if(!userInpValue || userInpValue.length < 50) {
+            if(!userInpValue || (userInpValue.length < 50 && !question.short)) {
                 flag = false;
                 return
             }
@@ -95,7 +95,7 @@
         id={question.id}
         label={question.question}
         placeholder={question.placeholder}
-        minlength={50}
+        minlength={question.short ? 50: 1}
     >{question.para}</Input>
 {/each}
 
