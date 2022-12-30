@@ -47,6 +47,12 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">Certification</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/panel/apps" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg aria-hidden="true" class={svgClassList} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V5zm1 0v10h12V5H4z" clip-rule="evenodd"></path></svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Apps</span>
+                    </a>
+                </li>
             {/if}
             {#if $page.data.staff}
                 <li>
