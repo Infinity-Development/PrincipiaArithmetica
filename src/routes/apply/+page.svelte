@@ -4,6 +4,8 @@
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
 	import Input from "$lib/components/Input.svelte";
+	import InputSm from "$lib/components/InputSm.svelte";
+	import { apiUrl } from "$lib/url";
 
     import { toast } from '@zerodevx/svelte-toast'
 
@@ -51,15 +53,18 @@
 
         console.log(obj);
 
-        fetch(`https://sovngarde.infinitybots.gg/herpes?user_id=${$page.data.userId}&position=${$page.data.positionName}`, {
+        fetch(`${apiUrl}/users/${$page.data.userId}/apps`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": $page.data.userToken
             },
-            body: JSON.stringify(obj)
+            body: JSON.stringify({
+                "position": $page.data.positionName,
+                "answers": obj
+            })
         }).then((res) => {
-            if(res.status === 200) {
+            if(res.ok) {
                 toast.push("Application sent!", {
                     duration: 2000,
                     theme: {
@@ -70,7 +75,7 @@
                 });
             } else {
                 res.json().then(json => {
-                    toast.push(json.reason, {
+                    toast.push(json.message, {
                         duration: 3000,
                     });
                 });
@@ -91,12 +96,21 @@
 <div class="mt-10"></div>
 
 {#each $page.data.questions as question}
-    <Input
-        id={question.id}
-        label={question.question}
-        placeholder={question.placeholder}
-        minlength={question.short ? 1: 50}
-    >{question.para}</Input>
+    {#if question.short}
+        <InputSm
+            id={question.id}
+            label={question.question}
+            placeholder={question.placeholder}
+            minlength={question.short ? 1: 50}
+        >{question.paragraph}</InputSm>
+    {:else}
+        <Input
+            id={question.id}
+            label={question.question}
+            placeholder={question.placeholder}
+            minlength={question.short ? 1: 50}
+        >{question.paragraph}</Input>
+    {/if}
 {/each}
 
 <GreyText>Ready to submit this application for review using our PounceCat system? Be sure to review everything first for spelling!</GreyText>

@@ -1,3 +1,4 @@
+import { apiUrl } from '$lib/url';
 import { error, redirect } from '@sveltejs/kit';
  
 /** @type {import('./$types').PageLoad} */
@@ -8,7 +9,7 @@ export async function load({ fetch, url, parent }) {
         throw redirect(302, '/login')
     }
 
-    let res = await fetch(`https://sovngarde.infinitybots.gg/herpes`)
+    let res = await fetch(`${apiUrl}/apps/meta`)
 
     let position = url.searchParams.get("position")
 
@@ -19,11 +20,11 @@ export async function load({ fetch, url, parent }) {
     if (res.ok) {
         let json = await res.json();
 
-        if(!json[position]) {
+        if(!json.positions[position]) {
             throw error(400, "Invalid position!");
         }
 
-        let data = json[position]
+        let data = json.positions[position]
 
         data["positionName"] = position
 

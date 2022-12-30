@@ -5,25 +5,25 @@
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
 
-	let extPos = 3 - ($page.data.positions.length % 3) // The number of ext pos to have
+	let extPos = 3 - ($page.data.positionsList.length % 3) // The number of ext pos to have
 </script>
 
 <!--3 cards per row-->
 {#if $page.data && $page.data.positions}
     <div class="flex flex-wrap justify-center items-center justify-evenly">
-        {#each $page.data.positions as position}
-	    {#if $page.data[position].app_site_rendered}	
+        {#each $page.data.positionsList as position}
+	    {#if !$page.data.positions[position].hidden}	
             	<div>
                 	<Card
-                    		title={$page.data[position].name}
+                    		title={$page.data.positions[position].name}
                     		link={"/apply?position=" + position}
                     		linkText={"Apply now"}
                     		showArrow={false}
-                    		showButton={$page.data[position].open}
+                    		showButton={!$page.data.positions[position].closed}
                 	>
-                    		{@html $page.data[position].info.replaceAll("\n", "<br/>")}
+                    		{@html $page.data.positions[position].info.replaceAll("\n", "<br/>")}
 
-                    		{#if !$page.data[position].open}
+                    		{#if $page.data.positions[position].closed}
                         		<GreyText>This position is currently closed</GreyText>
                     		{/if}
                 	</Card>
