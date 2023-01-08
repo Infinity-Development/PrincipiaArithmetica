@@ -1,9 +1,7 @@
 <script>
-
 	import { page } from "$app/stores";
 	import GreyText from "$lib/components/GreyText.svelte";
 	import { title } from "$lib/strings";
-
 </script>
 <h1 class="text-4xl font-bold mb-4 text-orange-400">{title($page.data.position)} Application</h1>
 <div class="m-3"></div>

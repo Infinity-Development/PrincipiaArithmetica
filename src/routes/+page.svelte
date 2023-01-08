@@ -3,7 +3,9 @@
 	import Button from "$lib/components/Button.svelte";
 	import Card from "$lib/components/Card.svelte";
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
+	import ExtCard from "$lib/components/ExtCard.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
+	import { mainSiteUrl } from "$lib/url";
 
 	let extPos = 3 - ($page.data.positionsList.length % 3) // The number of ext pos to have
 </script>
@@ -31,17 +33,7 @@
 	    {/if}
         {/each}
 	{#each [...Array(extPos)] as _}
-		<div class="hidden lg:block">
-			<Card
-				title={"Flying in soon..."}
-				link={"#"}
-				linkText={""}
-				showArrow={false}
-				showButton={false}
-			>
-				In the meanwhile, why not check out our other applications and our <a href="https://infinitybots.gg">website</a>
-			</Card>
-		</div>
+		<ExtCard />
 	{/each}
     </div>
 {/if}

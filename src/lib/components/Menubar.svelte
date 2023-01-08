@@ -3,6 +3,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
   import { page } from "$app/stores";
+	import { mainSiteUrl } from "$lib/url";
 
   function onClickMenu() {
     console.log("clicked");
@@ -41,10 +42,10 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <a href={"https://infinitybots.gg"} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Main Site</a>
+          <a href={mainSiteUrl} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Main Site</a>
         </li>
         <li>
-          <a href={"https://infinitybotlist.com/discord"} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Support</a>
+          <a href={mainSiteUrl + "/redirect/discord"} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Support</a>
         </li>
         <li>
           <a href={"/blog"} class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Blog</a>
@@ -71,8 +72,8 @@
 <div id="menu" class="hidden md:hidden">
   <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
     <a href="/" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Home</a>
-    <a href="https://infinitybots.gg" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Site</a>
-    <a href="https://infinitybotlist.com/discord" class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Support</a>
+    <a href={mainSiteUrl} class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Site</a>
+    <a href={mainSiteUrl + "/redirect/discord"} class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Support</a>
     {#if $page.data.userId}
       <a href={"javascript:void(0)"} on:click={logoutUser} class="block px-3 py-2 text-base font-medium text-violet-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-amber-400 dark:hover:text-white dark:hover:bg-gray-700">Logout (signed in as {$page.data.username})</a>
     {:else}
