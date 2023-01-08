@@ -4,6 +4,11 @@
 
     async function getStats() {
         let res = await fetch("https://spider.infinitybots.gg/list/stats")
+
+        if(!res.ok) {
+            throw new Error(`Got ${res.status} from API`)
+        }
+
         return await res.json()
     }
 

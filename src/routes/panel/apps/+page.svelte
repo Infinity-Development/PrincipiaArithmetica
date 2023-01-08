@@ -12,6 +12,10 @@
             }
         })
 
+        if(!res.ok) {
+            throw new Error(`Got ${res.status} from API`)
+        }
+
         return await res.json()
     }
 
