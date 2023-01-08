@@ -22,5 +22,3 @@
         <ExtCard />
 	{/each}
 </div>
-
-{JSON.stringify(appData)}
