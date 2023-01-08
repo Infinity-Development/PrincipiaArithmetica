@@ -56,12 +56,10 @@
         <div class="block">
             <details>
                 <summary class="cursor-pointer">
-                    <span>Advanced Info</span>
+                    <span>JSON (Advanced)</span>
                 </summary>
                 <span class="text-xs break-all word-wrap">
-                    <code>
-                        {JSON.stringify(stats)}
-                    </code>
+                    <pre>{JSON.stringify(stats, null, "\t")}</pre>
                 </span>
             </details>
         </div>
