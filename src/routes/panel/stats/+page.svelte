@@ -70,5 +70,5 @@
         </div>
     </div>
 {:catch err}
-    <p class="text-white text-center">An error occurred while fetching stats: {err}</p>
+    <p class="text-black text-center">An error occurred while fetching stats: {err}</p>
 {/await}
