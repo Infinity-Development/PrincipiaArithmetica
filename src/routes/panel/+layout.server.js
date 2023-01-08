@@ -7,6 +7,8 @@ export async function load({ parent, fetch }) {
             staff: false,
             admin: false,
             hadmin: false,
+            dev: false,
+            hdev: false,
             loggedIn: false,
             user: null,
         }
@@ -21,6 +23,8 @@ export async function load({ parent, fetch }) {
             staff: resp.staff || false,
             admin: resp.admin || false,
             hadmin: resp.hadmin || false,
+            ibldev: resp.ibldev || false,
+            iblhdev: resp.iblhdev || false,
             loggedIn: true,
             user: resp || null,
         }

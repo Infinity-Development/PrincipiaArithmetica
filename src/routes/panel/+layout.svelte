@@ -1,5 +1,5 @@
 <script>
-	import PanelSidebar from "./components/PanelSidebar.svelte";
+	import PanelDrawer from "./components/PanelDrawer.svelte";
 
     export const prerender = false;
 </script>
@@ -7,9 +7,9 @@
     <!--Create sidebar and put content to the right of it-->
     <div>
         <div>
-            <PanelSidebar>
+            <PanelDrawer>
                 <slot />
-            </PanelSidebar>
+            </PanelDrawer>
         </div>
     </div>
 </div>
