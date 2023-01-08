@@ -28,7 +28,7 @@
   }
 </script>
 
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+<nav class="bg-white border-gray-200 px-2 sm:px-4 rounded dark:bg-gray-900">
   <div class="flex flex-wrap justify-between items-center mx-auto">
     <a href="/" class="flex items-center text-black">
         <img src="https://cdn.infinitybots.xyz/images/png/Infinity.png" class="mr-3 h-6 sm:h-9" alt="IBL Logo" />
