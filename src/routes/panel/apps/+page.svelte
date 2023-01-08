@@ -38,4 +38,6 @@
     <p class="font-semibold text-xl">{msg}</p>
 {:then apps}
     <AppList appData={apps.apps} />
+{:catch err}
+    <p class="text-white text-center">An error occurred while fetching stats: {err}</p>
 {/await}
