@@ -86,8 +86,9 @@
 </script>
 
 <div class="flex justify-center items-center">
+    
     <DefaultCard 
-        title={"Applying for " + $page.data.name} 
+        title={$page.data.name} 
     >
         {@html $page.data.info.replaceAll("\n", "<br/>")}
     </DefaultCard>

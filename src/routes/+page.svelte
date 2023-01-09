@@ -7,7 +7,7 @@
 	import GreyText from "$lib/components/GreyText.svelte";
 	import { mainSiteUrl } from "$lib/url";
 
-	let extPos = 3 - ($page.data.positionsList.length % 3) // The number of ext pos to have
+	let extPos = 3 - ($page.data.positionsList.filter((f: any) => !f.hidden).length % 3) // The number of ext pos to have
 </script>
 
 <!--3 cards per row-->
