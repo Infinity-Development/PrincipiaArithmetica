@@ -8,7 +8,7 @@
 	import { mainSiteUrl } from "$lib/url";
 
     console.log($page.data.positionsList)
-	let extPos = 3 - ($page.data.positions.filter((f: any) => !f.hidden).length % 3) // The number of ext pos to have
+	let extPos = 3 - ($page.data.positionsList.filter((f: string) => !$page.data.positions[f].hidden).length % 3) // The number of ext pos to have
 </script>
 
 <!--3 cards per row-->
