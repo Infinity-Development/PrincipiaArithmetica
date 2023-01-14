@@ -107,6 +107,27 @@ import GreyText from "$lib/components/GreyText.svelte";
     </div>
 </Changelog>
 
+<Changelog>
+    <span slot="date">Saturday, 14th Jan 2023</span>
+    <div slot="entry">
+        <NewSeeder />
+        <span>As it has been a long time, not all changes are listed below but there were several refactors to the DB structure *again*</span>
+        <ul>
+            <li>
+                The schema of the <code>reviews</code> has been mostly finalized with several changes including the removal of <code>rate</code> and the addition of <code>parent_id</code> (for replies).
+            </li>
+            <li>
+                Bot resolution has been improved with the <code>utils.ResolveBot</code> function
+            </li>
+            <li>
+                Some functions such as <code>utils.Resolve*</code> other than the added <code>utils.ResolveBot</code> have been deprecated and will be removed.
+            </li>
+            <li>Minor bug fixes to Popplio</li>
+        </ul>
+    </div>
+</Changelog>
+
+
 <Button link={"/dev/guide"}>Back To Developer Guide</Button>
 
 <style>
