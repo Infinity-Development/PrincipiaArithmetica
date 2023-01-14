@@ -119,9 +119,6 @@ import GreyText from "$lib/components/GreyText.svelte";
             <li>
                 Bot resolution has been improved with the <code>utils.ResolveBot</code> function
             </li>
-            <li>
-                Some functions such as <code>utils.Resolve*</code> other than the added <code>utils.ResolveBot</code> have been deprecated and will be removed.
-            </li>
             <li>Minor bug fixes to Popplio</li>
         </ul>
     </div>
