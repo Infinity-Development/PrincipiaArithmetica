@@ -5,7 +5,6 @@
 	import DefaultCard from "$lib/components/DefaultCard.svelte";
 	import ExtCard from "$lib/components/ExtCard.svelte";
 	import GreyText from "$lib/components/GreyText.svelte";
-	import { mainSiteUrl } from "$lib/url";
 
     console.log($page.data.positionsList)
 	let extPos = 3 - ($page.data.positionsList.filter((f: string) => !$page.data.positions[f].hidden).length % 3) // The number of ext pos to have
